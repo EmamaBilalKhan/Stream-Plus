@@ -1,7 +1,6 @@
 import requests from "./Requests"
 import Row from "./Row"
 import "./Styles/Home.css"
-import WatchButton from "../assets/Watch-Now.png"
 
 export default function HomeScreen(){
     return(
@@ -21,19 +20,19 @@ export default function HomeScreen(){
         </section>
 
         <section id="action">
-            <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+            <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} ComingSoon={false}/>
         </section>
         
         <section id="comedies">
-            <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
+            <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} ComingSoon={false} />
         </section>
 
         <section id="horror">
-            <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
+            <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} ComingSoon={false} />
         </section>
 
         <section id="documentaries">
-            <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+            <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} ComingSoon={false} />
         </section>
 
         </div>

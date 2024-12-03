@@ -1,5 +1,13 @@
+import requests from "./Requests"
+import Row from "./Row"
+import "./Styles/ComingSoon.css"
+
 export default function ComingSoonScreen(){
     return(
-        <h1>Soon Screen</h1>
+        <div className="body">
+        <section>
+            <Row title="Coming Soon" fetchUrl={requests.fetchUpComing} ComingSoon={true}/>
+        </section>
+        </div>
     )
 }

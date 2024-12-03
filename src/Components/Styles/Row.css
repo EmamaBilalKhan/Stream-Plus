@@ -13,6 +13,17 @@
     font-weight: bold;
     padding: 0;
 }
+.LoadingError{
+    width:70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.LoadingError>p{
+    font-size: 3vh;
+    font-weight: bold;
+}
 .row-posters {
     display: flex;
     overflow-y: hidden;
@@ -86,9 +97,14 @@
     flex-direction: row;
     width: 100%;
     padding: 0vh 1vw;
-
 }
-.movie-details> p{
+.movie-details-coming-soon{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1vh 1vw;
+}
+.movie-details-p{
     font-size: 2.5vh;
     font-weight: bold;
     color: black;

@@ -8,7 +8,7 @@ import { useState } from "react";
 import Home from "../Components/Home"
 import ComingSoon from "../Components/ComingSoon";
 import Favourites from "../Components/Favourites";
-import Trending from "../Components/Home";
+import Trending from "../Components/Trending";
 import AboutUs from "../Components/AboutUs";
 export default function HomeScreen() {
   const [selectedComponent, setSelectedComponent] = useState("Home");

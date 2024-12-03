@@ -2,12 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Styles/Row.css";
 import backArrow from "../assets/Back.png";
 import forwardArrow from "../assets/Forward.png";
-function Row({ title, fetchUrl }) {
+function Row({ title, fetchUrl,ComingSoon }) {
   const [movies, setMovies] = useState([]);
   const API_KEY = process.env.REACT_APP_API_KEY;
   const scrollContainerRef = useRef(null);
-
+  const [Loading,setLoading]=useState(true);
+  const [error,setError]=useState(null);
   useEffect(() => {
+    setError(null)
+    setLoading(true)
     const baseUrl = "https://api.themoviedb.org/3";
     async function fetchData() {
       try {
@@ -18,19 +21,21 @@ function Row({ title, fetchUrl }) {
             Authorization: `Bearer ${API_KEY}`,
           },
         });
-
         const data = await response.json();
         setMovies(data.results);
+        setLoading(false);
         console.log("Movies data: ", data.results);
       } catch (error) {
         console.error("Error fetching movies: ", error);
+        setError("Error Getting Movies");
+        setLoading(false);
       }
     }
     fetchData();
   }, [API_KEY, fetchUrl]);
 
   const trimDate=(date)=>{
-    return date.substring(0,4) || "N/A";
+    return date.toString().substring(0,4);
   }
   
   const scroll = (direction) => {
@@ -40,10 +45,16 @@ function Row({ title, fetchUrl }) {
       behavior: "smooth",
     });
   };
-
+  
   return (
     <div className="row">
     <h1>{title}</h1>
+  {Loading && <div className="LoadingError"> {!error?
+  <p>Loading..</p>
+  :
+  <p>{error}</p>
+  }</div>}  
+  {!Loading &&<>  
   <img
     className="backArrow"
     src={backArrow}
@@ -52,16 +63,19 @@ function Row({ title, fetchUrl }) {
   />
   <div className="row-posters" ref={scrollContainerRef}>
     {movies.map((movie) => (
-      <div className="poster" key={movie.id}>
+      <div className="poster" key={movie.id} onClick={()=>{
+        window.location.href = `/movie/${movie.id}`
+      }}>
         <img
           src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
           alt={movie.title || movie.name}
         />
         <h2>{movie.title || ""}</h2>
-        <section className="movie-details">
-          <p>{trimDate(movie.release_date)}</p>
-          <p>&nbsp;&nbsp;|&nbsp;&nbsp;</p>
-          <p>rating: {movie.vote_average.toFixed(1)}</p>
+        <section className={ComingSoon ? "movie-details-coming-soon" : "movie-details"}>
+        {ComingSoon && <p className="movie-details-p">Coming:&nbsp;&nbsp;{movie.release_date}</p>}
+          {!ComingSoon&&<p className="movie-details-p">{trimDate(movie.release_date)}</p>}
+          {!ComingSoon && <p className="movie-details-p">&nbsp;&nbsp;|&nbsp;&nbsp;</p>}
+          <p className="movie-details-p">rating: {movie.vote_average.toFixed(1)}</p>
         </section>
       </div>
     ))}
@@ -71,7 +85,7 @@ function Row({ title, fetchUrl }) {
     src={forwardArrow}
     alt="Scroll Forward"
     onClick={() => scroll("right")}
-  />
+  /></>}
 </div>
 
   );
