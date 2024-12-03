@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color:white
+}
+.row{
+    padding: 3vh 5vw;
+    position: relative;
+}
+.row > h1{
+    font-size: 4vh;
+    font-weight: bold;
+    padding: 0;
+}
+.row-posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: 0vh 5vw;
+    padding: 3vh 0vw;
+    margin-right: 2vw;
+    scroll-behavior: smooth;
+}
+
+.row-posters::-webkit-scrollbar {
+    display: none;
+}
+.backArrow{
+    height: 8vh;
+    width: 5vw;
+    align-self: center;
+    position: absolute;
+    left: 5vw;
+    top:50%;
+    transform: translateY(-50%);
+}
+.forwardArrow{
+    height: 8vh;
+    width: 5vw;
+    align-self: center;
+    position: absolute;
+    right: 1vw;
+    top:50%;
+    transform: translateY(-50%);
+}
+.backArrow:hover{
+    cursor: pointer;
+}
+.forwardArrow:hover{
+    cursor: pointer;
+}
+.poster{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    border: 2px #DADBDE solid;
+    background-color: #DADBDE;
+    border-radius: 20px;
+    padding-bottom: 2vh;
+    transition: transform 0.3s ease;
+
+}
+.poster:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.poster > img {
+    height: 22vh;
+    width: 18vw;
+    margin-bottom: 1.5vh;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.poster> h2{
+    font-size: 3.5vh;
+    font-weight: bold;
+    margin: 0vh 1vw;
+    color: black;
+
+}
+.movie-details{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0vh 1vw;
+
+}
+.movie-details> p{
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: black;
+}
+
+

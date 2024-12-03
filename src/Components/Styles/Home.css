@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.body{
+    overflow-y: auto;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    scroll-behavior: smooth; 
+
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    padding-top: 3vh;
+    padding-left: 3vw;
+}
+nav a{
+    font-size: 3vh;
+    text-decoration: none;
+    margin-right: 3vw;
+}
+nav a:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+.HighlightMovie{
+background-image:url("../../assets/HighlightMovie.png") ;
+background-repeat: no-repeat;
+background-size:cover;
+height: 55vh;
+width: 100%;
+position: relative;
+}
+.HighlightMovieDetails{
+position: absolute;
+bottom: 3vh;
+left: 5vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.HighlightMovieDetails>h2{
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+.HighlightMovieDetails>p{
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+.HighlightMovieDetails>img{
+   height: 7vh;
+   width: 8vw;
+   margin-top: 1vh;
+}
+.HighlightMovieDetails>button{
+    height: 7vh;
+    width: 8vw;
+    margin-top: 1vh;
+    background-color: #6100C2;
+    color:white;
+    border-radius: 10px;
+    font-weight: normal;
+    border-width: 0px;
+ }
+ .HighlightMovieDetails>button:hover{
+    font-weight: bold;
+    border: white solid 1px;
+    cursor: pointer;
+    
+ }
