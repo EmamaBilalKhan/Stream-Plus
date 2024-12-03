@@ -2,12 +2,10 @@ import "./Styles/HomeScreen.css";
 import Icon from "../assets/Icon.png";
 import film from "../assets/film.png";
 import calender from "../assets/calendar.png";
-import heart from "../assets/heart.png";
 import trending from "../assets/trending-up.png";
 import { useState } from "react";
 import Home from "../Components/Home"
 import ComingSoon from "../Components/ComingSoon";
-import Favourites from "../Components/Favourites";
 import Trending from "../Components/Trending";
 import AboutUs from "../Components/AboutUs";
 export default function HomeScreen() {
@@ -21,8 +19,6 @@ export default function HomeScreen() {
         return <ComingSoon/>
       case "Trending":
         return <Trending/>
-      case "Favourites":
-        return <Favourites/>
       case "About Us":
         return <AboutUs/>
       default:
@@ -50,10 +46,6 @@ export default function HomeScreen() {
             <li onClick={() => setSelectedComponent("Trending")}>
               <img src={trending} alt="Trending" />
               <h2>Trending</h2>
-            </li>
-            <li onClick={() => setSelectedComponent("Favourites")}>
-              <img src={heart} alt="Favourites" />
-              <h2>Favourites</h2>
             </li>
           </ul>
         </section>

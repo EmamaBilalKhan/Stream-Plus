@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import "./Styles/Row.css";
 import backArrow from "../assets/Back.png";
 import forwardArrow from "../assets/Forward.png";
+
 function Row({ title, fetchUrl,ComingSoon }) {
+  const scrollContainerRef = useRef(null);
   const [movies, setMovies] = useState([]);
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const scrollContainerRef = useRef(null);
   const [Loading,setLoading]=useState(true);
   const [error,setError]=useState(null);
   useEffect(() => {
@@ -48,19 +49,28 @@ function Row({ title, fetchUrl,ComingSoon }) {
   
   return (
     <div className="row">
-    <h1>{title}</h1>
+    <section className="row-top">
+    <h1 className="row-title">{title}</h1>
+    {!Loading&&!error &&<div className="arrows">
+      <img
+    className="backArrow"
+    src={backArrow}
+    alt="Scroll Backward"
+    onClick={() => scroll("left")}
+    />
+     <img
+    className="forwardArrow"
+    src={forwardArrow}
+    alt="Scroll Forward"
+    onClick={() => scroll("right")}
+    />
+    </div>}</section>
   {Loading && <div className="LoadingError"> {!error?
   <p>Loading..</p>
   :
   <p>{error}</p>
   }</div>}  
   {!Loading &&<>  
-  <img
-    className="backArrow"
-    src={backArrow}
-    alt="Scroll Backward"
-    onClick={() => scroll("left")}
-  />
   <div className="row-posters" ref={scrollContainerRef}>
     {movies.map((movie) => (
       <div className="poster" key={movie.id} onClick={()=>{
@@ -79,13 +89,9 @@ function Row({ title, fetchUrl,ComingSoon }) {
         </section>
       </div>
     ))}
+    <div className="spacer"></div>
   </div>
-  <img
-    className="forwardArrow"
-    src={forwardArrow}
-    alt="Scroll Forward"
-    onClick={() => scroll("right")}
-  /></>}
+  </>}
 </div>
 
   );

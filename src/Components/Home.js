@@ -13,9 +13,9 @@ export default function HomeScreen(){
                 <a href="#action">Action</a>
             </nav>
             <div className="HighlightMovieDetails">
-                <h2>Insider</h2>
+                <h2>Insiders</h2>
                 <p>2021&nbsp;&nbsp;|&nbsp;&nbsp;comedy horror&nbsp;&nbsp;|&nbsp;&nbsp;1 season</p>
-                <button>Watch Now</button>
+                <button onClick={()=>{window.location.href = `/HighlightPlayer`}}>Watch Now</button>
             </div>
         </section>
 

@@ -8,17 +8,37 @@
     padding: 3vh 5vw;
     position: relative;
 }
-.row > h1{
+.row-top{
+    display: flex;
+    width: 35%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.row-title{
     font-size: 4vh;
     font-weight: bold;
     padding: 0;
+}
+.arrows{
+    display: flex;
+    flex-direction: row;
+    width:15vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+}
+.backArrow{
+    height: 3vh;
+    width: 2vw;
+}
+.forwardArrow{
+    height: 3vh;
+    width: 2vw;
 }
 .LoadingError{
     width:70vw;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 .LoadingError>p{
     font-size: 3vh;
@@ -28,38 +48,13 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: auto;
-    margin: 0vh 5vw;
-    padding: 3vh 0vw;
+    margin: 0vh 0vw;
+    padding: 3vh 0vw 3vh 0vw;
     margin-right: 2vw;
     scroll-behavior: smooth;
 }
-
 .row-posters::-webkit-scrollbar {
     display: none;
-}
-.backArrow{
-    height: 8vh;
-    width: 5vw;
-    align-self: center;
-    position: absolute;
-    left: 5vw;
-    top:50%;
-    transform: translateY(-50%);
-}
-.forwardArrow{
-    height: 8vh;
-    width: 5vw;
-    align-self: center;
-    position: absolute;
-    right: 1vw;
-    top:50%;
-    transform: translateY(-50%);
-}
-.backArrow:hover{
-    cursor: pointer;
-}
-.forwardArrow:hover{
-    cursor: pointer;
 }
 .poster{
     display: flex;
@@ -71,7 +66,6 @@
     border-radius: 20px;
     padding-bottom: 2vh;
     transition: transform 0.3s ease;
-
 }
 .poster:hover{
     cursor: pointer;
@@ -109,5 +103,8 @@
     font-weight: bold;
     color: black;
 }
-
-
+.spacer{
+    flex: 0 0 10vw; 
+    height: 100%;
+    pointer-events: none;
+}
